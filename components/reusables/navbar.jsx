@@ -40,7 +40,7 @@ const Navbar = () => {
             </div>
             <Link href="/make-a-donation" style={{textDecoration:'none'}} >
                 <p className="navbar-right-donation">
-                    Make a donation
+                    Make a Donation
                 </p>
             </Link>
         </div>

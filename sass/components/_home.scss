@@ -1,0 +1,89 @@
+.home {
+    &-header {
+        position: relative;
+        height: calc(100vh - 18rem);
+        padding: 4rem;
+
+        &-header {
+            max-width: 53rem;
+            width: 80%;
+
+            h2 {
+                font-size: 4.6rem;
+                margin-bottom: 1rem;
+                color: #86577B;
+            }
+
+            p {
+                // margin:0;
+                width: 85%;
+                font-size: 2.4rem;
+            }
+
+        }
+
+        &-content {
+            display: flex;
+            margin: 6rem 0;
+            width: 100%;
+
+            &-right {
+                height: calc(48rem - 20rem);
+                width: 100%;
+                background-color: #B4E1FF;
+                z-index: 2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    font-size: 2.9rem;
+                }
+
+                &-link {
+                    background-color: black;
+                    color: white;
+                    font-size: 2rem;
+                    display: flex;
+                    width: 30rem;
+                    text-align: center;
+            
+                    align-items: center;
+                    // height: 3rem;
+                    // text-decoration: saddlebrown !important;
+                    font-weight: 900;
+
+                    padding: 1rem;
+                }
+
+                h3 {
+                    margin: 0;
+                    font-size: 5.2rem;
+                }
+
+                &-inner {
+                    width: 41.1rem;
+                }
+
+                padding: 10rem;
+                margin: 0 0 0 4rem;
+            }
+
+            &-image {
+                border-right: 8rem solid #794577;
+
+                border-left: 8rem solid #794577;
+            }
+        }
+
+        &-cover {
+            top: 0;
+            right: 0;
+            position: absolute;
+            height: 100%;
+            object-fit: cover;
+            ;
+            width: 30%;
+        }
+    }
+}

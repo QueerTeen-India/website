@@ -1,6 +1,7 @@
 .navbar {
   display: flex;
   align-items: center;
+  height: 10rem;
   padding: 1rem 3rem;
   justify-content: space-between;
   background-color: #ECF3F5;
@@ -63,6 +64,74 @@
   height: 3rem;
   font-weight: 900;
   padding: 1.4rem 1rem;
+}
+
+.home-header {
+  position: relative;
+  height: calc(100vh - 18rem);
+  padding: 4rem;
+}
+.home-header-header {
+  max-width: 53rem;
+  width: 80%;
+}
+.home-header-header h2 {
+  font-size: 4.6rem;
+  margin-bottom: 1rem;
+  color: #86577B;
+}
+.home-header-header p {
+  width: 85%;
+  font-size: 2.4rem;
+}
+.home-header-content {
+  display: flex;
+  margin: 6rem 0;
+  width: 100%;
+}
+.home-header-content-right {
+  height: 28rem;
+  width: 100%;
+  background-color: #B4E1FF;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem;
+  margin: 0 0 0 4rem;
+}
+.home-header-content-right p {
+  font-size: 2.9rem;
+}
+.home-header-content-right-link {
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  width: 30rem;
+  text-align: center;
+  align-items: center;
+  font-weight: 900;
+  padding: 1rem;
+}
+.home-header-content-right h3 {
+  margin: 0;
+  font-size: 5.2rem;
+}
+.home-header-content-right-inner {
+  width: 41.1rem;
+}
+.home-header-content-image {
+  border-right: 8rem solid #794577;
+  border-left: 8rem solid #794577;
+}
+.home-header-cover {
+  top: 0;
+  right: 0;
+  position: absolute;
+  height: 100%;
+  object-fit: cover;
+  width: 30%;
 }
 
 body {
