@@ -1,6 +1,10 @@
 .navbar {
     display: flex;
     align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
     height: 10rem;
     padding: 1rem 3rem;
     justify-content: space-between;
@@ -29,15 +33,23 @@
         &-nav {
             display: flex;
             align-items: center;
-            height: 3rem;
+            height: 5.8rem;
+            font-size: 1.6rem;
+            
             background-color: #F1F1F1;
-            padding: 1.4rem 1rem;
-            font-size: 1.8rem;
-
+            
+            transition: all 0.2s;
             &-each {
+                &:hover {
+                    
+                    color: #fff;
+                    background-color: #000;
+                }
+
+                background-color: #F1F1F1;
+                padding: 1.4rem 3rem;
                 color: #000;
                 text-decoration: none !important;
-                margin: 2rem;
             }
         }
 
@@ -72,10 +84,10 @@
         &-donation {
             background-color: black;
             color: white;
-            font-size: 2rem;
+            font-size: 1.6rem;
             margin: 0 2rem;
             display: flex;
-            align-items:center;
+            align-items: center;
             height: 3rem;
             // text-decoration: saddlebrown !important;
             font-weight: 900;
