@@ -6,12 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "style":"sass ./sass/main.scss ./styles/globals.css -w",
     "lint": "next lint"
   },
   "dependencies": {
+    "concurrently": "^7.5.0",
     "next": "13.0.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sass": "^1.55.0"
   },
   "devDependencies": {
     "eslint": "8.26.0",
