@@ -33,15 +33,17 @@ const Events = () => {
             <div className="home-events-container">
                 {events.map((e, index) => {
                     return (<div key={index} className="home-events-container-each">
-                        <div className="home-events-container-each-date">
-                            <h4>{e.date[0]}</h4>
-                            <div>
-                                <p>{e.date[1]}</p>
-                                <p>{e.date[2]}</p>
+                        <div className="home-events-container-each-content-container">
+                            <div className="home-events-container-each-date">
+                                <h4>{e.date[0]}</h4>
+                                <div>
+                                    <p>{e.date[1]}</p>
+                                    <p>{e.date[2]}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="home-events-container-each-content">
-                            <h3>{e.name}/</h3><h5>{e.venue}</h5>
+                            <div className="home-events-container-each-content">
+                                <h3>{e.name}/</h3><h5>{e.venue}</h5>
+                            </div>
                         </div>
                         <div className="home-events-container-each-link">
                             <Link href="/rsvp" style={{ textDecoration: 'none' }} >

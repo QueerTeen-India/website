@@ -152,6 +152,49 @@
 .home-events {
   padding: 4rem;
 }
+.home-events-container-each {
+  padding: 1rem 0;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.home-events-container-each:not(:last-child) {
+  border-bottom: 1px solid #E8E6E6;
+}
+.home-events-container-each-date {
+  display: flex;
+  align-items: center;
+}
+.home-events-container-each-date div p {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+.home-events-container-each-date div p:first-child {
+  color: #B3B3B3;
+}
+.home-events-container-each-date h4 {
+  font-weight: 400;
+  margin-right: 1rem;
+  font-size: 4rem;
+}
+.home-events-container-each-content {
+  margin-left: 4rem;
+  display: flex;
+  align-items: baseline;
+}
+.home-events-container-each-content-container {
+  display: flex;
+  align-items: center;
+}
+.home-events-container-each-content h3 {
+  font-weight: 400;
+  font-size: 4rem;
+}
+.home-events-container-each-content h5 {
+  margin-left: 2rem;
+  font-size: 2rem;
+}
 .home-events-header {
   border-bottom: 2px solid #794577;
   display: flex;
