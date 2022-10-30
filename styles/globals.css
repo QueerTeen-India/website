@@ -218,6 +218,50 @@
   font-weight: 900;
   padding: 1rem;
 }
+.home-services {
+  padding: 10rem;
+  height: 60rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.home-services-right {
+  position: relative;
+  width: 40rem;
+  margin-left: 3rem;
+  height: 60rem;
+}
+.home-services-right img {
+  object-fit: cover;
+}
+.home-services-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+  width: calc(100% - 90rem);
+  background-color: #F5D2CE;
+}
+.home-services-content-inner {
+  width: 40rem;
+}
+.home-services-content p {
+  font-size: 1.8rem;
+}
+.home-services-content h3 {
+  margin: 1rem 0 3rem;
+  font-size: 3.6rem;
+}
+.home-services-left {
+  position: relative;
+  width: 40rem;
+  margin-right: 3rem;
+  height: 60rem;
+}
+.home-services-left img {
+  object-fit: cover;
+}
 
 body {
   margin: 0;

@@ -103,27 +103,31 @@
         &-container {
             &-each {
                 padding: 1rem 0;
-                &:not(:last-child){
+
+                &:not(:last-child) {
 
                     border-bottom: 1px solid #E8E6E6;
 
                 }
+
                 &-date {
                     display: flex;
                     align-items: center;
-                    div{
-                        p{
+
+                    div {
+                        p {
                             margin: 0;
                             font-size: 1.6rem;
                             font-weight: 300;
-                            &:first-child{
+
+                            &:first-child {
                                 color: #B3B3B3;
                             }
-                            &:nth-child(2){
-                                
-                            }
+
+                            &:nth-child(2) {}
                         }
                     }
+
                     h4 {
                         font-weight: 400;
                         margin-right: 1rem;
@@ -146,7 +150,8 @@
                         font-weight: 400;
                         font-size: 4rem;
                     }
-                    h5{
+
+                    h5 {
                         margin-left: 2rem;
                         font-size: 2rem;
                     }
@@ -187,6 +192,62 @@
             font-weight: 900;
 
             padding: 1rem;
+        }
+    }
+
+    &-services {
+        &-right {
+            position: relative;
+            width: 40rem;
+
+            margin-left: 3rem;
+
+            img {
+                object-fit: cover;
+                ;
+            }
+
+            height: 60rem;
+        }
+
+        &-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #fff;
+            &-inner{
+
+                width: 40rem;
+            }
+            p{
+                font-size: 1.8rem;
+            }
+            h3{
+                margin:1rem 0 3rem;
+                font-size: 3.6rem;
+            }
+            width: calc(100% - 90rem);
+            background-color: #F5D2CE;
+        }
+
+        padding:10rem;
+        height: 60rem;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-left {
+            position: relative;
+            width: 40rem;
+            margin-right: 3rem;
+
+            img {
+                object-fit: cover;
+                ;
+            }
+
+            height: 60rem;
         }
     }
 }
