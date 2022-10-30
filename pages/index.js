@@ -1,3 +1,3 @@
 
-import Home from '../components/Home';
+import Home from '../components/home/index.jsx';
 export default Home;
