@@ -20,14 +20,14 @@ const Navbar = () => {
     }
     ]
     return (<div className="navbar">
-        <div className="navbar-left">
+        <Link href="/" style={{color:'inherit', textDecoration:'inherit'}}className="navbar-left">
             <div className="navbar-left-logo">
                 <Image width={85} height={98}
                     layout="fill" src='/logo.png' alt="logo" />
                 <h3>Queerteen India</h3>
             </div>
 
-        </div>
+        </Link>
         <div className="navbar-right">
             <div className="navbar-right-search">
                 <SearchIcon className="navbar-right-search-icon" />

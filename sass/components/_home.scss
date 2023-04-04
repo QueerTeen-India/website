@@ -36,6 +36,7 @@
                 justify-content: center;
                 align-items: center;
 
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
                 p {
                     font-size: 2.9rem;
                 }
@@ -79,9 +80,9 @@
             }
 
             &-image {
-                border-right: 8rem solid #794577;
+                border-right: 1rem solid #794577;
 
-                border-left: 8rem solid #794577;
+                border-left: 1rem solid #794577;
             }
         }
 
@@ -99,6 +100,7 @@
 
     &-events {
         padding: 4rem;
+        margin-top: 25rem;
 
         &-container {
             &-each {
@@ -214,6 +216,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 4rem;
             height: 100%;
             color: #fff;
             &-inner{
@@ -227,7 +231,7 @@
                 margin:1rem 0 3rem;
                 font-size: 3.6rem;
             }
-            width: calc(100% - 90rem);
+            width: calc(100% - 95rem);
             background-color: #F5D2CE;
         }
 
