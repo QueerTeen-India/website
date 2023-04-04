@@ -23,13 +23,13 @@ const Footer = () => {
                         <FacebookIcon style={{ fontSize: "inherit" }}></FacebookIcon>
                     </a>
                     <a href="#">
-                        <InstagramIcon style={{ fontSize: "inherit" }}/>
+                        <InstagramIcon style={{ fontSize: "inherit" }} />
                     </a>
                     <a href="#">
-                        <TwitterIcon style={{ fontSize: "inherit" }}/>
+                        <TwitterIcon style={{ fontSize: "inherit" }} />
                     </a>
                     <a href="#">
-                        <YouTubeIcon style={{ fontSize: "inherit" }}/>
+                        <YouTubeIcon style={{ fontSize: "inherit" }} />
                     </a>
                 </div>
             </div>
@@ -42,6 +42,13 @@ const Footer = () => {
                         <input type="text" placeholder="Enter your email address" />
                         <button>Submit</button>
                     </form>
+                    <p>
+                        © Queerteen India. All rights reserved. <br />
+                        Write to us at 
+
+                        <span> </span><a href="mailto:contact.queerteenindia@gmail.com">contact.queerteenindia@gmail.com</a>
+
+                    </p>
                 </div>
 
             </div>
