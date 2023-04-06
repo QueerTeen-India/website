@@ -35,13 +35,14 @@
             align-items: center;
             height: 5.8rem;
             font-size: 1.6rem;
-            
+
             background-color: #F1F1F1;
-            
+
             transition: all 0.2s;
+
             &-each {
                 &:hover {
-                    
+
                     color: #fff;
                     background-color: #000;
                 }
@@ -88,7 +89,12 @@
             margin: 0 2rem;
             display: flex;
             align-items: center;
-            height: 3rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            &:hover{
+                transform: scale(1.1);
+            }
+            height: 5rem;
             // text-decoration: saddlebrown !important;
             font-weight: 900;
 

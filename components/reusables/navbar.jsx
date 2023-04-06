@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import SearchIcon from '@mui/icons-material/Search';
+import Donation from './donation'
+import { useState } from 'react';
+
 const Navbar = () => {
     const links = [{
         name: "Programs & Services",
@@ -19,8 +22,9 @@ const Navbar = () => {
         link: "/news"
     }
     ]
+    const [open, setOpen] = useState(false)
     return (<div className="navbar">
-        <Link href="/" style={{color:'inherit', textDecoration:'inherit'}}className="navbar-left">
+        <Link href="/" style={{ color: 'inherit', textDecoration: 'inherit' }} className="navbar-left">
             <div className="navbar-left-logo">
                 <Image width={85} height={98}
                     layout="fill" src='/logo.png' alt="logo" />
@@ -38,11 +42,10 @@ const Navbar = () => {
                     return <Link className="navbar-right-nav-each" href={link.link} key={index}>{link.name}</Link>
                 })}
             </div>
-            <Link href="/make-a-donation" style={{textDecoration:'none'}} >
-                <p className="navbar-right-donation">
-                    Make a Donation
-                </p>
-            </Link>
+            <button onClick={(a) => setOpen(!open)} className="navbar-right-donation">
+                Make a Donation
+            </button>
+            <Donation setOpen={setOpen} open={open} />
         </div>
 
     </div>)

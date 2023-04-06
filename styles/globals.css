@@ -75,9 +75,14 @@ body {
   margin: 0 2rem;
   display: flex;
   align-items: center;
-  height: 3rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  height: 5rem;
   font-weight: 900;
   padding: 1.4rem 1rem;
+}
+.navbar-right-donation:hover {
+  transform: scale(1.1);
 }
 
 .home-header {
@@ -449,6 +454,62 @@ body {
   border-radius: 0.25rem;
   cursor: pointer;
   outline: none;
+}
+
+.donation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background-color: #281728;
+}
+.donation-closed {
+  transform: translate(0, -50vw);
+}
+.donation-close {
+  position: absolute;
+  cursor: pointer;
+  font-size: 5rem !important;
+  right: 6rem;
+}
+.donation-close:hover {
+  transform: scale(1.1);
+}
+.donation h2 {
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+.donation h3 {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+.donation-container {
+  position: relative;
+  padding: 5rem;
+}
+.donation-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.donation-types-each {
+  font-size: 1.6rem;
+  border: 1px solid #fff;
+  padding: 3rem 10rem;
+}
+.donation-types-each h4 {
+  font-size: 2.4rem;
+  margin-bottom: 0;
+}
+.donation-types-each button {
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid #282828;
+  margin-top: 1.4rem;
+  padding: 1.5rem 5rem;
+}
+.donation-types-each button:hover {
+  transform: scale(1.1);
 }
 
 body {
