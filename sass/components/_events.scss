@@ -1,0 +1,101 @@
+.events {
+    background-color: #fff;
+
+    &-header {
+        padding: 4rem;
+        box-shadow: 0 0 .5rem rgba(#000, 0.3);
+
+        h1 {
+            color: #794577;
+            font-weight: 350;
+            font-size: 4rem;
+            margin-bottom: 0;
+        }
+
+        p {
+            font-size: 2rem;
+            font-weight: 500
+        }
+    }
+
+    &-container {
+        &-each {
+            box-shadow: #794577 0 0 .5rem;
+
+            &-image {
+                width: 50%;
+
+                img {
+                    // display: none;
+                    width: 100%;
+                    object-fit: cover;
+                    height: 100%;
+                }
+
+                height: 50rem;
+            }
+
+            &-button {
+                background-color: #794577;
+                color: white;
+                font-size: 1.6rem !important;
+                // display: flex;
+                // text-align: center;
+                transition: all 0.2s;
+                border: 1px solid transparent;
+                width: 15rem;
+                margin-top: 1.5rem;
+                text-align: center;
+                cursor: pointer;
+                transition: all 0.2s;
+                &:hover{
+                    color: #794577;
+                    border: 1px solid #794577;
+                    background-color: transparent;
+                }
+                // align-items: center;
+                // height: 3rem;
+                // text-decoration: saddlebrown !important;
+                font-weight: 600;
+
+                padding: 1.5rem 1rem;
+            }
+
+            &-content {
+
+                // background-color: #fff;
+                h2 {
+                    font-size: 4rem;
+                    font-weight: 300;
+                    line-height: 1rem;
+                }
+
+                &-description {
+                    font-size: 1.8rem;
+                    // padding: 10rem;
+                    font-weight: 500;
+                    // max-width: 40rem;
+                }
+
+                // height: calc(100% - 20rem);
+                font-size: 1.6rem;
+                width: calc(50% - 20rem);
+                padding: 10rem;
+                // max-width: 40rem;
+            }
+
+            // width: 100%;
+            height: 50rem;
+            position: relative;
+            margin: 5rem 0;
+            align-items: center;
+            grid-template-columns: 1fr 1fr;
+            &:nth-child(2n){
+                flex-direction: row-reverse;
+            }
+            display: flex;
+        }
+
+        padding: 4rem;
+    }
+}

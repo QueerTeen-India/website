@@ -1,3 +1,5 @@
+import Head  from "next/head";
+
 const About = () => {
     let info = [{
         title: "Mission",
@@ -25,6 +27,9 @@ const About = () => {
     ]
     return (<>
         <div className="about">
+            <Head>
+                <title>About Us</title>
+            </Head>
             <div className="about-header">
 
                 <h1>Who we are & What we do</h1>
