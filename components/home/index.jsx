@@ -10,12 +10,11 @@ const Home = () => {
             <Head>
                 <title>QueerTeen India</title>
             </Head>
-            <Header/>
-            <Events/>
-            <Service/>
-            <Footer/>
+            <Header />
+            <Events />
+            <Service />
         </div>
     )
 }
-    
+
 export default Home;

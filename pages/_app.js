@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import Head from 'next/head'
 import Navbar from '../components/reusables/navbar'
+import Footer from '../components/reusables/footer';
 function MyApp({ Component, pageProps }) {
   return(
   <>
@@ -15,6 +16,7 @@ function MyApp({ Component, pageProps }) {
     </Head>
     <Navbar/>
     <Component {...pageProps} />
+    <Footer/>
   </>)
 }
 
