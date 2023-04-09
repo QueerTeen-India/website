@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
     </Head>
     <Navbar/>
     <Component {...pageProps} />
-    <Footer/>
+    <div style={{backgroundColor:"#fff"}}><Footer/></div>
   </>)
 }
 
