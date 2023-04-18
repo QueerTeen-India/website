@@ -3,8 +3,14 @@ import Link from "next/link";
 import SearchIcon from '@mui/icons-material/Search';
 import Donation from './donation'
 import { useState } from 'react';
-
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { useUser } from '@auth0/nextjs-auth0/client';
+import LoginIcon from '@mui/icons-material/Login';
 const Navbar = () => {
+    const { user, error, isLoading } = useUser();
+    const [profile, setProfile] = useState(false)
+    console.log(user, error)
     const links = [{
         name: "Programs & Services",
         link: '/programs-and-services'
@@ -46,6 +52,14 @@ const Navbar = () => {
                 Make a Donation
             </button>
             <Donation setOpen={setOpen} open={open} />
+            {user ? <div className="navbar-right-user">
+                <img onClick={() => setProfile(!profile)} className="navbar-right-profile" src={user.picture} alt="user" />
+            </div> : <Link href="/api/auth/login" className="navbar-right-login"><LoginIcon className="navbar-right-login-icon" /></Link>}
+            {profile ? <div className="navbar-right-profile-dropdown">
+                <Link className="navbar-right-profile-dropdown-each" href="/profile">Profile <AccountBoxIcon className="navbar-right-profile-dropdown-each-icon" /></Link>
+                <Link className="navbar-right-profile-dropdown-each" href="/api/auth/logout">Logout <LogoutIcon className="navbar-right-profile-dropdown-each-icon" /></Link>
+            </div>
+                : null}
         </div>
 
     </div>)

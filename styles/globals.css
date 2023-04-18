@@ -29,6 +29,66 @@ body {
   align-items: center;
   display: flex;
 }
+.navbar-right-login {
+  transition: all 0.3s;
+  display: flex;
+  cursor: pointer;
+  box-shadow: 0 0 2rem rgba(0, 56, 168, 0.4);
+  align-items: center;
+  border-radius: 100%;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #794577;
+  color: #fff !important;
+}
+.navbar-right-login-icon {
+  font-size: 3rem !important;
+  margin: 0;
+}
+.navbar-right-login:hover {
+  transform: scale(1.1);
+}
+.navbar-right-profile {
+  position: relative;
+  width: 5rem;
+  transition: all 0.3s;
+  height: 5rem;
+  cursor: pointer;
+  box-shadow: 0 0 2rem rgba(0, 56, 168, 0.4);
+  border-radius: 100%;
+}
+.navbar-right-profile-dropdown {
+  top: 100%;
+  display: flex;
+  width: 14rem;
+  flex-direction: column;
+  z-index: 10;
+  right: 0%;
+  background-color: #fff;
+  position: absolute;
+}
+.navbar-right-profile-dropdown-each {
+  text-decoration: none !important;
+  transition: all 0.2s;
+  background-color: #ECF3F5;
+  display: flex;
+  font-size: 1.5rem;
+  width: calc(100% - 4rem);
+  color: #000;
+  justify-content: space-between;
+  padding: 2rem;
+  align-items: center;
+}
+.navbar-right-profile-dropdown-each:hover {
+  color: #fff !important;
+  background-color: #000;
+}
+.navbar-right-profile-dropdown-each:last-child {
+  box-shadow: 0 0 2rem rgba(0, 56, 168, 0.1);
+}
+.navbar-right-profile:hover {
+  transform: scale(1.1);
+}
 .navbar-right-nav {
   display: flex;
   align-items: center;
