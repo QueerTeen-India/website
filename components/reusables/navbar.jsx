@@ -5,12 +5,13 @@ import Donation from './donation'
 import { useState } from 'react';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { useUser } from '@auth0/nextjs-auth0/client';
+// import { useUser } from '@auth0/nextjs-auth0/client';
 import LoginIcon from '@mui/icons-material/Login';
 const Navbar = () => {
-    const { user, error, isLoading } = useUser();
+    // const { user, error, isLoading } = useUser();
+    const user = null;
     const [profile, setProfile] = useState(false)
-    console.log(user, error)
+  
     const links = [{
         name: "Programs & Services",
         link: '/programs-and-services'

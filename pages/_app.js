@@ -1,11 +1,21 @@
 import '../styles/globals.css'
 import Head from 'next/head'
 import Navbar from '../components/reusables/navbar';
-import { UserProvider } from '@auth0/nextjs-auth0/client';
 import Footer from '../components/reusables/footer';
+import React from 'react'
+import { AppProps } from 'next/app'
+import SuperTokensReact, { SuperTokensWrapper } from 'supertokens-auth-react'
+
+import { frontendConfig } from '../config/frontendConfig'
 function MyApp({ Component, pageProps }) {
-  return(
-    <UserProvider>
+
+if (typeof window !== 'undefined') {
+  // we only want to call this init function on the frontend, so we check typeof window !== 'undefined'
+  SuperTokensReact.init(frontendConfig())
+}
+
+  return (
+    <SuperTokensWrapper>
       <Head> 
         <link rel="icon" href="/favicon.ico" />
         <title>404: Not Found</title>
@@ -18,7 +28,9 @@ function MyApp({ Component, pageProps }) {
       <Navbar/>
       <Component {...pageProps} />
       <div style={{backgroundColor:"#fff"}}><Footer/></div>
-    </UserProvider>)
+    </SuperTokensWrapper>
+  );
 }
+
 
 export default MyApp
