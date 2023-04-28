@@ -13,6 +13,15 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    image: {
+        type: String,
+        required: true
+    },
+    labels: {
+        type: [String],
+        required: true
+
+    },
     date: {
         type: Date,
         required: true
@@ -27,7 +36,9 @@ const eventSchema = new mongoose.Schema({
 
 eventSchema.index({
     title: 'text',
-    description: "text"
+    description: "text",
+    address: "text",
+    labels: "text"
 });
 
-export default mongoose.model('event', eventSchema)
+export default mongoose.models.event || mongoose.model('event', eventSchema)
