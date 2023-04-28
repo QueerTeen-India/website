@@ -25,7 +25,6 @@ const UserHandler = async (req, res) => {
                 message: "Bio updated successfully!"
             })
 
-            return res.json(user)
         } catch (err) {
             return res.status(500).json({
                 errorMessage: err.message || "Internal Server Error"
