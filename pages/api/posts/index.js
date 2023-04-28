@@ -1,5 +1,7 @@
 import auth from "../../../middlewares/auth";
 import Post from "../../../models/post";
+import db from "../../../models/db";
+
 const POST = async (req, res) => {
     try {
         let user = req.user
@@ -102,6 +104,7 @@ const DELETE = async (req, res) => {
 
 
 const handler = async (req, res) => {
+    await db()
     if (req.method === 'POST') {
         return auth(POST(req, res))
     } else if (req.method === "GET") {
