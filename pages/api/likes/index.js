@@ -4,6 +4,7 @@ import User from "../../../models/User";
 import db from "../../../models/db";
 
 const POST = async (req, res) => {
+    db()
     const user = req.user;
     const {
         type,
