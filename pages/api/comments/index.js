@@ -2,7 +2,7 @@ import Comments from '../../../models/Comments';
 import auth from '../../../middlewares/auth';
 import Post from '../../../models/post';
 import db from "../../../models/db";
-
+import News from '../../../models/news';
 const POST = async (req, res) => {
     try {
         let user = req.user
@@ -22,7 +22,8 @@ const POST = async (req, res) => {
                 content,
                 user: user._id,
                 referringPost: post._id,
-                referringComment: null
+                referringComment: null,
+                type
             })
             await comment.save()
             post.comments.push(comment._id)
@@ -42,7 +43,8 @@ const POST = async (req, res) => {
                 content,
                 user: user._id,
                 referringPost: null,
-                referringComment: comment._id
+                referringComment: comment._id,
+                type
             })
             await newComment.save()
             comment.comments.push(newComment._id)
@@ -51,6 +53,23 @@ const POST = async (req, res) => {
                 message: "Comment created successfully",
                 comment
             });
+        }
+        else if(type==="onNews"){
+            let news = await News.findById(ref)
+            if (!news) {
+                return res.status(404).json({
+                    errorMessage: "News not found"
+                });
+            }
+            let comment = new Comments({
+                content,
+                user: user._id,
+                referringPost: null,
+                referringComment: null,
+                referringNews:news._id,
+                type
+            })
+
         }
     } catch (err) {
         return res.status(500).json({

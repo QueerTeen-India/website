@@ -32,10 +32,14 @@ const commentSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'post',
     },
+    referringNews:{
+        type: mongoose.Types.ObjectId,
+        ref: 'news',
+    },
     type: {
         type: String,
         required: true,
-        enums: ["onPost", 'onComment']
+        enums: ["onPost", 'onComment', "onNews"]
     }
 });
 
