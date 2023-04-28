@@ -52,7 +52,13 @@ const GET = async (req, res) => {
         let {
             id
         } = req.query;
-        const post = await Post.findById(id).populate('user', 'name profilePic')
+        const post = await Post.findById(id).populate('user', 'name profilePic _id').populate({
+            path: 'comments',
+            populate: {
+                path: "comments"
+            }
+        })
+
         if (!post) {
             return res.status(404).json({
                 errorMessage: "Post not found"
@@ -75,13 +81,12 @@ const DELETE = async (req, res) => {
         } = req.query;
         const user = req.user;
         const post = await Post.findById(id);
-        if(post.user.toString() === user._id.toString()){
+        if (post.user.toString() === user._id.toString()) {
             await post.delete()
             return res.json({
                 message: "Post deleted successfully",
             });
-        }
-        else{
+        } else {
             return res.status(401).json({
                 errorMessage: "Unauthorized"
             });
@@ -103,10 +108,9 @@ const handler = async (req, res) => {
         return GET(req, res)
     } else if (req.method === "DELETE") {
         return auth(DELETE(req, res))
-    }
-    else{
+    } else {
         res.status(404).json({
-            errorMessage:"Invalid Request Method"
+            errorMessage: "Invalid Request Method"
         })
     }
 }

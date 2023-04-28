@@ -14,10 +14,19 @@ const postSchema = new mongoose.Schema({
         enums:["text", 'image', 'video'],
         required: true
     },
+    comments:{
+        type: [mongoose.Types.ObjectId],
+        ref: 'comment',
+        default: []
+    },
     likes:{
         type: [mongoose.Types.ObjectId],
         ref: 'user',
         default: []
+    },
+    createdAt:{
+        type: Date,
+        default: Date.now()
     },
     labels:{
         type: [String],
