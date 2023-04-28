@@ -9,7 +9,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    password: {
+    adminLevel: {
+        type: Number,
+        enums: [0, 1, 2], //0: not an admin, 1: admin, 2:super admin 
+        default: 0
+    },
+    googleId: {
         type: String,
         required: true
     },
@@ -33,4 +38,4 @@ userSchema.index({
     bio: "text"
 });
 
-export default mongoose.model('user', userSchema)
+export default mongoose.models.user || mongoose.model('user', userSchema);

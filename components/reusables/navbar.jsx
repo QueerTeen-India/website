@@ -5,13 +5,21 @@ import Donation from './donation'
 import { useState } from 'react';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LogoutIcon from '@mui/icons-material/Logout';
-// import { useUser } from '@auth0/nextjs-auth0/client';
+import axios from 'axios';
 import LoginIcon from '@mui/icons-material/Login';
+import {
+    getCookie
+} from 'cookies-next';
+
+const getUrl = async () => {
+    let url = await axios.get('/api/auth/google/url')
+    return url.data.url
+}
 const Navbar = () => {
-    // const { user, error, isLoading } = useUser();
+
     const user = null;
     const [profile, setProfile] = useState(false)
-  
+
     const links = [{
         name: "Programs & Services",
         link: '/programs-and-services'
@@ -55,7 +63,9 @@ const Navbar = () => {
             <Donation setOpen={setOpen} open={open} />
             {user ? <div className="navbar-right-user">
                 <img onClick={() => setProfile(!profile)} className="navbar-right-profile" src={user.picture} alt="user" />
-            </div> : <Link href="/api/auth/login" className="navbar-right-login"><LoginIcon className="navbar-right-login-icon" /></Link>}
+            </div> : <div className="navbar-right-login" onClick={async () => {
+                document.location.href = await getUrl()
+            }}><LoginIcon className="navbar-right-login-icon" /></div>}
             {profile ? <div className="navbar-right-profile-dropdown">
                 <Link className="navbar-right-profile-dropdown-each" href="/profile">Profile <AccountBoxIcon className="navbar-right-profile-dropdown-each-icon" /></Link>
                 <Link className="navbar-right-profile-dropdown-each" href="/api/auth/logout">Logout <LogoutIcon className="navbar-right-profile-dropdown-each-icon" /></Link>

@@ -19,12 +19,17 @@ const postSchema = new mongoose.Schema({
         ref: 'user',
         default: []
     },
+    labels:{
+        type: [String],
+        default: []
+    }
 
 });
 
 postSchema.index({
     title: 'text',
-    content: "text"
+    content: "text",
+    labels: "text"
 });
 
 export default mongoose.model('post', postSchema)
