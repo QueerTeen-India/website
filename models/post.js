@@ -22,6 +22,11 @@ const postSchema = new mongoose.Schema({
     labels:{
         type: [String],
         default: []
+    },
+    user:{
+        type: mongoose.Types.ObjectId,
+        ref: 'user',
+        required: true
     }
 
 });
@@ -32,4 +37,4 @@ postSchema.index({
     labels: "text"
 });
 
-export default mongoose.model('post', postSchema)
+export default mongoose.models.post || mongoose.model('post', postSchema)

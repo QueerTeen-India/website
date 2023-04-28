@@ -11,7 +11,7 @@ const imageUpload = async (user, file) => {
             extensions: [{
                 name: "google-auto-tagging",
                 maxTags: 5,
-                minConfidence: 95
+                minConfidence: 90
             }]
         }, (err, result) => {
             if (err) {
@@ -24,11 +24,11 @@ const imageUpload = async (user, file) => {
                 let link = result.url;
                 let tags = result['AITags'].map(a => a.name)
                 return {
-                    link, tags
+                    link,
+                    tags
                 }
             }
         })
-
     } catch {
         throw new Error({
             message: "Internal Server Error",
