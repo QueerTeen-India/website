@@ -6,7 +6,8 @@ const GET = async (req, res) => {
     try {
         db()
         let {
-            search
+            search, 
+            from
         } = req.query;
         const post = await Post.find({
             $text: {
@@ -17,7 +18,7 @@ const GET = async (req, res) => {
             populate: {
                 path: "comments"
             }
-        })
+        }).skip(Number(from))
         return res.json({
             post
         });

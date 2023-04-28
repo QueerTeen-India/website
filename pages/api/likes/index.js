@@ -1,6 +1,7 @@
 import Comments from "../../../models/Comments";
 import Post from "../../../models/post";
 import User from "../../../models/User";
+import News from "../../../models/news";
 import db from "../../../models/db";
 
 const POST = async (req, res) => {
@@ -49,7 +50,27 @@ const POST = async (req, res) => {
             message: "Action Successful",
             post
         });
-    } else {
+    } else if(type==="onNews"){
+        const news = await News.findById(id);
+        if (!news) {
+            return res.status(404).json({
+                errorMessage: "News not found"
+            });
+
+        }
+        if (news.likes.find((like) => like.toString() === user._id.toString())) {
+            let likes = news.likes.filter((like) => like.toString() !== user._id.toString())
+            news.likes = likes
+            await news.save()
+        } else {
+            news.likes.push(user._id)
+            await news.save()
+        }
+        return res.json({
+            message: "Action Successful",
+            news
+        });
+    }else {
         return res.status(404).json({
             errorMessage: "Invalid Request"
         });
