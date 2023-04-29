@@ -7,6 +7,7 @@ import { useState } from 'react';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LogoutIcon from '@mui/icons-material/Logout';
 import axios from 'axios';
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import GoogleIcon from '@mui/icons-material/Google';
 import {
     getCookie
@@ -80,6 +81,7 @@ const Navbar = (props) => {
                     setProfile(false)
                     props.logout();
                 }} className="navbar-right-profile-dropdown-each" href="/api/auth/logout">Logout <LogoutIcon className="navbar-right-profile-dropdown-each-icon" /></div>
+                {user.adminLevel>0?<Link className="navbar-right-profile-dropdown-each" href="/admin">Admin  <SupervisorAccountIcon className="navbar-right-profile-dropdown-each-icon"/></Link>:null}
             </div>
                 : null}
         </div>
