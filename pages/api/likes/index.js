@@ -50,7 +50,7 @@ const POST = async (req, res) => {
             message: "Action Successful",
             post
         });
-    } else if(type==="onNews"){
+    } else if (type === "onNews") {
         const news = await News.findById(id);
         if (!news) {
             return res.status(404).json({
@@ -70,7 +70,7 @@ const POST = async (req, res) => {
             message: "Action Successful",
             news
         });
-    }else {
+    } else {
         return res.status(404).json({
             errorMessage: "Invalid Request"
         });
