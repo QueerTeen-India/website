@@ -2,6 +2,7 @@ import auth from "../../../middlewares/auth";
 import Post from "../../../models/post";
 import db from "../../../config/db";
 import imageUpload from "../../../utils/imageUpload";
+import comments from "../../../models/comments";
 
 const POST = async (req, res) => {
     try {
@@ -58,6 +59,7 @@ const GET = async (req, res) => {
         let {
             id
         } = req.query;
+        console.log(id)
         const post = await Post.findById(id).populate('user', 'name profilePic _id').populate({
             path: 'comments',
             populate: {
@@ -75,6 +77,7 @@ const GET = async (req, res) => {
             post
         });
     } catch (err) {
+        console.log(err)
         return res.status(500).json({
             errorMessage: err.message || "Internal Server Error"
         });

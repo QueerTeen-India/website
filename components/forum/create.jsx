@@ -68,9 +68,12 @@ const Create = (props) => {
         }
     }
     if (props.auth.loggedInStatus !== 1) {
-        // document.location.href = '/'
+        if(props.auth.loggedInStatus === 2){
+            router.push('/')
+        }
         return <></>
     }
+    
     return (
         <div className="forum-create">
             <Head>

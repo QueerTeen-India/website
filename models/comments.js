@@ -48,4 +48,4 @@ commentSchema.index({
     content: "text"
 });
 
-export default mongoose.model('comment', commentSchema)
+export default  mongoose.models.comment ||  mongoose.model('comment', commentSchema)
