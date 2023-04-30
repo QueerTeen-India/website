@@ -3,7 +3,7 @@ import {
     v4 as uuid
 } from 'uuid';
 
-const imageUpload = async (user, file) => {
+const imageUpload =  (user, file, next) => {
     try {
         imageKit.upload({
             file,
@@ -13,7 +13,8 @@ const imageUpload = async (user, file) => {
                 maxTags: 5,
                 minConfidence: 90
             }]
-        }, (err, result) => {
+        }, async (err, result) => {
+            console.log(err, result)
             if (err) {
                 console.log(err)
                 throw new Error({
@@ -22,11 +23,9 @@ const imageUpload = async (user, file) => {
                 })
             } else {
                 let link = result.url;
-                let tags = result['AITags'].map(a => a.name)
-                return {
-                    link,
-                    tags
-                }
+                let tags = result['AITags'] ? result['AITags'].map(a => a.name) : []
+                return await next(link, tags)
+
             }
         })
     } catch {

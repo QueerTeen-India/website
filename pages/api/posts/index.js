@@ -1,6 +1,7 @@
 import auth from "../../../middlewares/auth";
 import Post from "../../../models/post";
-import db from "../../../models/db";
+import db from "../../../config/db";
+import imageUpload from "../../../utils/imageUpload";
 
 const POST = async (req, res) => {
     try {
@@ -10,6 +11,7 @@ const POST = async (req, res) => {
             title,
             content
         } = req.body;
+        console.log(user)
         if (type === "text") {
             let post = new Post({
                 title,
@@ -24,25 +26,27 @@ const POST = async (req, res) => {
                 post
             });
         } else if (type === "image" || type === "video") {
-            let {
-                link,
-                tags
-            } = await imageUpload(user, content)
-            let post = new Post({
-                title,
-                content: link,
-                type,
-                labels: [...title.split(' '), ...tags],
-                user: user._id
+            return imageUpload(user, content, async (link, tags) => {
+
+                console.log(link, tags, title.split(' '))
+                let post = new Post({
+                    title,
+                    content: link,
+                    type,
+                    labels: [...(title.split(' ')), ...tags],
+                    user: user._id
+                })
+                await post.save()
+                return res.json({
+                    message: "Post created successfully",
+                    post
+                });
             })
-            await post.save()
-            return res.json({
-                message: "Post created successfully",
-                post
-            });
+
         }
         return res.json(user)
     } catch (err) {
+        console.log(err)
         return res.status(500).json({
             errorMessage: err.message || "Internal Server Error"
         });
@@ -104,18 +108,25 @@ const DELETE = async (req, res) => {
 
 
 const handler = async (req, res) => {
-    await db()
+
     if (req.method === 'POST') {
-        return auth(POST(req, res))
+        return POST(req, res)
     } else if (req.method === "GET") {
         return GET(req, res)
     } else if (req.method === "DELETE") {
-        return auth(DELETE(req, res))
+        return DELETE(req, res)
     } else {
         res.status(404).json({
             errorMessage: "Invalid Request Method"
         })
     }
 }
+export const config = {
+    api: {
+        bodyParser: {
+            sizeLimit: '40mb'
+        }
+    }
+}
 
-export default (handler)
+export default auth(handler)

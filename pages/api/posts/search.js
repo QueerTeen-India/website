@@ -18,7 +18,7 @@ const GET = async (req, res) => {
             populate: {
                 path: "comments"
             }
-        }).skip(Number(from))
+        }).skip(Number(from)).limit(10);
         return res.json({
             post
         });
