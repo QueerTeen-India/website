@@ -45,4 +45,4 @@ newsSchema.index({
     labels: "text"
 });
 
-export default mongoose.model('news', newsSchema)
+export default mongoose.models.news || mongoose.model('news', newsSchema)

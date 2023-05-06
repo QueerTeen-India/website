@@ -2,7 +2,7 @@ import auth from "../../../middlewares/auth";
 import Post from "../../../models/post";
 import db from "../../../config/db";
 import imageUpload from "../../../utils/imageUpload";
-import comments from "../../../models/comments";
+// import comments from "../../../models/comments";
 
 const POST = async (req, res) => {
     try {
@@ -62,9 +62,13 @@ const GET = async (req, res) => {
         console.log(id)
         const post = await Post.findById(id).populate('user', 'name profilePic _id').populate({
             path: 'comments',
-            populate: {
-                path: "comments"
-            }
+            populate: [{
+                    path: "comments",
+                },
+                {
+                    path: "user"
+                }
+            ]
         })
 
         if (!post) {

@@ -2,7 +2,8 @@ import Comments from "../../../models/Comments";
 import Post from "../../../models/post";
 import User from "../../../models/User";
 import News from "../../../models/news";
-import db from "../../../models/db";
+import auth from "../../../middlewares/auth";
+import db from "../../../config/db";
 
 const POST = async (req, res) => {
     db()
@@ -10,7 +11,8 @@ const POST = async (req, res) => {
     const {
         type,
         id
-    } = req.query;
+    } = req.body;
+    console.log(id, type)
     if (type === "onComment") {
         const comment = await Comments.findById(id);
         if (!comment) {
@@ -48,7 +50,7 @@ const POST = async (req, res) => {
         }
         return res.json({
             message: "Action Successful",
-            post
+            likes: post.likes
         });
     } else if (type === "onNews") {
         const news = await News.findById(id);

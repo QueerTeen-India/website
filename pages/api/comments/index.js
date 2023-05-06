@@ -1,7 +1,7 @@
 import Comments from '../../../models/Comments';
 import auth from '../../../middlewares/auth';
 import Post from '../../../models/post';
-import db from "../../../models/db";
+import db from "../../../config/db";
 import News from '../../../models/news';
 const POST = async (req, res) => {
     try {
@@ -12,7 +12,7 @@ const POST = async (req, res) => {
             content
         } = req.body;
         if (type === "onPost") {
-            let post = await Post.findById(postId)
+            let post = await Post.findById(ref)
             if (!post) {
                 return res.status(404).json({
                     errorMessage: "Post not found"
@@ -25,12 +25,21 @@ const POST = async (req, res) => {
                 referringComment: null,
                 type
             })
+
             await comment.save()
             post.comments.push(comment._id)
             await post.save()
             return res.json({
                 message: "Comment created successfully",
-                comment
+                comment:{
+                    content,
+                    _id:comment._id,
+                    user: user,
+                    createdAt: comment.createdAt,
+                    referringPost: post._id,
+                    referringComment: null,
+                    type
+                }
             });
         } else if (type === "onComment") {
             let comment = await Comments.findById(ref)
@@ -72,6 +81,7 @@ const POST = async (req, res) => {
 
         }
     } catch (err) {
+        console.log(err)
         return res.status(500).json({
             errorMessage: err.message || "Internal Server Error"
         });
@@ -128,11 +138,11 @@ const DELETE = async (req, res) => {
 const handler = async (req, res) => {
     await db();
     if (req.method === 'POST') {
-        return auth(POST(req, res))
+        return POST(req, res)
     } else if (req.method === 'GET') {
         return GET(req, res)
     } else if (req.method === 'DELETE') {
-        return auth(DELETE(req, res))
+        return DELETE(req, res)
     } else {
         res.status(404).json({
             errorMessage: "Invalid Request Method"
@@ -140,4 +150,4 @@ const handler = async (req, res) => {
     }
 }
 
-export default handler;
+export default auth(handler);

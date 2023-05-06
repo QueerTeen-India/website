@@ -6,11 +6,23 @@ html {
     font-size: 10px;
 }
 
-.loading{
+.loading {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    
+
+}
+
+* {
+    &::-webkit-scrollbar {
+        &-thumb{
+            background-color: #000;
+            border-radius: 5px;
+        }
+        width: 1rem;
+        background-color: #d6dee1;
+        border-radius: 5px;
+    }
 }
