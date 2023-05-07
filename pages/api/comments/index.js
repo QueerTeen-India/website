@@ -38,7 +38,8 @@ const POST = async (req, res) => {
                     createdAt: comment.createdAt,
                     referringPost: post._id,
                     referringComment: null,
-                    type
+                    type,
+                    likes:[]
                 }
             });
         } else if (type === "onComment") {

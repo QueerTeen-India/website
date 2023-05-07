@@ -992,6 +992,29 @@ body {
   font-size: 2rem;
 }
 
+.forum {
+  width: 80%;
+  max-width: 70rem;
+  margin: 10rem auto;
+}
+.forum-header {
+  border-bottom: 2px solid #794577;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.forum-header h1 {
+  color: #794577;
+  font-size: 3.6rem;
+}
+.forum-header p {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 0 2rem;
+}
+
 .post {
   width: 80%;
   margin: 10rem auto;
@@ -1006,10 +1029,120 @@ body {
   background-image: linear-gradient(to right, rgba(171, 135, 255, 0.8), rgba(171, 135, 255, 0.9)), url("/footer-right.webp");
   position: relative;
 }
-.post-footer {
+.post-snippet {
+  width: 100%;
+  align-items: center;
+  display: block;
+  margin-bottom: 2rem !important;
+  padding: 2rem 0;
+  border-bottom: 1px solid #B3B3B3;
+}
+.post-snippet-content {
+  margin: 2rem 0;
+}
+.post-snippet-content img {
+  width: 100%;
+  object-fit: scale-down;
+  max-height: 30rem;
+}
+.post-snippet-content p {
+  font-size: 2rem;
+}
+.post-snippet-footer {
+  display: flex;
+  width: 100%;
+  margin-top: 4rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.post-snippet-footer-left {
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
+}
+.post-snippet-footer-right {
+  padding-right: 2rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.post-snippet-footer-right-icon {
+  font-size: 2.5rem !important;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.post-snippet-footer-right-icon:hover {
+  transform: scale(1.1);
+}
+.post-snippet-footer-length {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0rem 0 2rem;
+}
+.post-snippet-footer-icon {
+  font-size: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 0 0rem 0 2rem;
+}
+.post-snippet-footer-icon:hover {
+  transform: scale(1.1);
+}
+.post-snippet-header {
+  display: flex;
+  color: #FBFFFF;
+  width: calc(100% - 2rem);
+  justify-content: space-between;
+  font-size: 2rem;
+}
+.post-snippet-header-user {
+  display: grid;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 3rem;
+  max-width: 30rem;
+  color: #000;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: auto auto;
+}
+.post-snippet-header-user img {
+  margin-right: 2rem;
+}
+.post-snippet-header-user p {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-right: 2rem;
+}
+.post-snippet-header img {
+  width: 6rem;
+  border-radius: 100%;
+}
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.75rem 1.5rem;
+}
+.post-footer-left {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.post-footer-right {
+  padding-right: 2rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.post-footer-right-icon {
+  font-size: 2.5rem !important;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.post-footer-right-icon:hover {
+  transform: scale(1.1);
 }
 .post-footer-length {
   font-size: 2rem;
@@ -1072,13 +1205,28 @@ body {
   width: calc(100% - 4rem);
   border-radius: 1fr 1fr 0 1rem;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  max-height: 56rem;
 }
 .post-content img {
+  max-height: 100% !important;
   border-radius: 0.5rem;
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
 }
+.post-content p {
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  height: 100% !important;
+}
 .post-comment {
+  cursor: pointer;
   width: calc(100% - 4rem);
   border-radius: 2rem;
   padding: 2rem;
@@ -1091,6 +1239,25 @@ body {
 }
 .post-comment-inner {
   padding: 0 1rem;
+}
+.post-comment-footer {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+}
+.post-comment-footer-length {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0rem 0 2rem;
+}
+.post-comment-footer-icon {
+  font-size: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.post-comment-footer-icon:hover {
+  transform: scale(1.1);
 }
 .post-comment-header {
   display: flex;

@@ -30,7 +30,8 @@ const POST = async (req, res) => {
         }
         return res.json({
             message: "Action Successful",
-            comment
+            comment,
+            likes: comment.likes
         });
     } else if (type === "onPost") {
         const post = await Post.findById(id);
